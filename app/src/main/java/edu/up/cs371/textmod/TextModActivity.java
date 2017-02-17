@@ -21,19 +21,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-
+import static edu.up.cs371.textmod.R.string.copy_name_button_text;
 import java.util.ArrayList;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 import java.lang.String;
 
-public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
 
     Button ClearButton;
     TextView editText;
 
-   private Button buttonUP;
+    private Button buttonUP;
     private EditText textUP;
     private String newtext;
     private Button buttonDOWN;
@@ -43,10 +43,8 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
 
 
-import static edu.up.cs371.textmod.R.string.copy_name_button_text;
 
-public class TextModActivity extends ActionBarActivity
-{
+
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
