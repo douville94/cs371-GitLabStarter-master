@@ -28,9 +28,7 @@ public class TextModActivity extends ActionBarActivity {
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
 
-    /**
-     * @see android.app.Activity#onCreate(android.os.Bundle)
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
