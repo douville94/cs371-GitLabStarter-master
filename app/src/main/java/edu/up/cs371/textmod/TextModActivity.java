@@ -114,7 +114,7 @@ public class TextModActivity extends ActionBarActivity{
         private class buttonDOWNListener implements View.OnClickListener {
 
             public void onClick(View v) {
-                newtext = textUP.getText().toString();
+                newtext = textUP.getText().toString();//nathan
                 textUP.setText((newtext.toLowerCase()));
 
 
