@@ -21,10 +21,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-
+import static edu.up.cs371.textmod.R.string.copy_name_button_text;
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
 
     private Button ClearButton;
     private TextView editText;
