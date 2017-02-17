@@ -24,7 +24,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity{
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
+
+    Button ClearButton;
+    TextView editText;
 
    private Button buttonUP;
     private EditText textUP;
@@ -65,6 +68,9 @@ public class TextModActivity extends ActionBarActivity{
 
 
 
+        ClearButton = (Button)findViewById(R.id.ClearButton);
+        editText = (EditText)findViewById(R.id.editText);
+        ClearButton.setOnClickListener(this);
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
 
@@ -148,6 +154,15 @@ public class TextModActivity extends ActionBarActivity{
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int viewId = v.getId();
+        if (viewId == R.id.ClearButton)
+        {
+            editText.setText(" ");
+        }
     }
 
     /**
