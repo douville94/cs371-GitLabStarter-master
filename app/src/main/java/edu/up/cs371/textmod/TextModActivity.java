@@ -26,28 +26,20 @@ import java.util.ArrayList;
 
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 
-    Button ClearButton;
-    TextView editText;
-
-   private Button buttonUP;
+    private Button ClearButton;
+    private TextView editText;
+    private Button buttonUP;
     private EditText textUP;
     private String newtext;
     private Button buttonDOWN;
-
-
-
-
-
-
+    Button reverseButton;
+    EditText myEditText;
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
-
-    Button reverseButton;
-    EditText myEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,23 +49,17 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
         reverseButton = (Button)findViewById(R.id.button4);
         myEditText = (EditText)findViewById(R.id.editText);
-        reverseButton.setOnClickListener(this);
-
-
-
         buttonUP = (Button) findViewById(R.id.buttonUP);
-        buttonUP.setOnClickListener(new buttonUPListener());
         textUP = (EditText) findViewById(R.id.editText);
         buttonDOWN = (Button) findViewById(R.id.buttonDOWN);
-        buttonDOWN.setOnClickListener(new buttonDOWNListener());
-
-
-
-
-
         ClearButton = (Button)findViewById(R.id.ClearButton);
         editText = (EditText)findViewById(R.id.editText);
+
+        reverseButton.setOnClickListener(this);
+        buttonUP.setOnClickListener(new buttonUPListener());
+        buttonDOWN.setOnClickListener(new buttonDOWNListener());
         ClearButton.setOnClickListener(this);
+
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
 
