@@ -19,8 +19,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class TextModActivity extends ActionBarActivity {
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -28,13 +30,18 @@ public class TextModActivity extends ActionBarActivity {
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
 
+    Button reverseButton;
+    EditText myEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         // perform superclass initialization; load the layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
+
+        reverseButton = (Button)findViewById(R.id.reverseButton);
+        myEditText = (EditText)findViewById(R.id.editText);
+        reverseButton.setOnClickListener(this);
 
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
@@ -71,6 +78,32 @@ public class TextModActivity extends ActionBarActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+    }
+
+    public void onClick(View view) {
+
+        int viewId = view.getId();
+        String initText = myEditText.getText().toString();
+
+        if (viewId == R.id.reverseButton){
+            String reverseText = reverse(initText);
+            myEditText.setText(reverseText);
+        }
+    }
+
+    public static String reverse(String input){
+        char[] in = input.toCharArray();
+        int begin=0;
+        int end=in.length-1;
+        char temp;
+        while(end>begin){
+            temp = in[begin];
+            in[begin]=in[end];
+            in[end] = temp;
+            end--;
+            begin++;
+        }
+        return new String(in);
     }
 
     /**
