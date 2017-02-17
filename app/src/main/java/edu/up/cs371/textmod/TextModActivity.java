@@ -21,7 +21,7 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import android.widget.Button;
 import android.widget.EditText;
-
+//l
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
 
     // array-list that contains our images to display
