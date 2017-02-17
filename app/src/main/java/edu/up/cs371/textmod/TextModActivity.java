@@ -20,11 +20,28 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 import java.lang.String;
+
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
+
+    Button ClearButton;
+    TextView editText;
+
+   private Button buttonUP;
+    private EditText textUP;
+    private String newtext;
+    private Button buttonDOWN;
+
+
+
+
+
 
 import static edu.up.cs371.textmod.R.string.copy_name_button_text;
 
@@ -52,6 +69,21 @@ public class TextModActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
 
+
+
+        buttonUP = (Button) findViewById(R.id.buttonUP);
+        buttonUP.setOnClickListener(new buttonUPListener());
+        textUP = (EditText) findViewById(R.id.editText);
+        buttonDOWN = (Button) findViewById(R.id.buttonDOWN);
+        buttonDOWN.setOnClickListener(new buttonDOWNListener());
+
+
+
+
+
+        ClearButton = (Button)findViewById(R.id.ClearButton);
+        editText = (EditText)findViewById(R.id.editText);
+        ClearButton.setOnClickListener(this);
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
 
@@ -96,6 +128,26 @@ public class TextModActivity extends ActionBarActivity
 
 
     }
+    private class buttonUPListener implements View.OnClickListener {
+
+        public void onClick(View v) {
+            newtext = textUP.getText().toString();
+            textUP.setText((newtext.toUpperCase()));
+
+
+        }
+    }
+
+        private class buttonDOWNListener implements View.OnClickListener {
+
+            public void onClick(View v) {
+                newtext = textUP.getText().toString();//nathan
+                textUP.setText((newtext.toLowerCase()));
+
+
+            }
+
+        }
 
     public class copyNameButtonListener implements View.OnClickListener
     {
@@ -163,6 +215,15 @@ public class TextModActivity extends ActionBarActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int viewId = v.getId();
+        if (viewId == R.id.ClearButton)
+        {
+            editText.setText(" ");
+        }
     }
 
     /**

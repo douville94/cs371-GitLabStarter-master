@@ -38,6 +38,10 @@
             android:layout_weight="1"
             android:textSize="@dimen/edittext_font_size"
             android:singleLine="true"
+            android:text="@string/initial_text"
+            android:enabled="true"
+            android:editable="false"
+            android:autoText="true" />
             android:text="Text goes hereSleeping Kitten" />
 
         <Space
@@ -66,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/clear_button_text"
-            android:id="@+id/button"
+            android:id="@+id/ClearButton"
             android:textSize="@dimen/button_font_size"
             android:textColor="@color/button_text_color"
             android:background="@color/button_color" />
@@ -80,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/upper_button_text"
-            android:id="@+id/button6"
+            android:id="@+id/buttonUP"
             android:textSize="@dimen/button_font_size"
             android:textColor="@color/button_text_color"
             android:background="@color/button_color" />
@@ -94,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lower_button_text"
-            android:id="@+id/button7"
+            android:id="@+id/buttonDOWN"
             android:textSize="@dimen/button_font_size"
             android:textColor="@color/button_text_color"
             android:background="@color/button_color" />
