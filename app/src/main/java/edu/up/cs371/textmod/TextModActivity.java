@@ -55,7 +55,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
 
-        reverseButton = (Button)findViewById(R.id.reverseButton);
+        reverseButton = (Button)findViewById(R.id.button4);
         myEditText = (EditText)findViewById(R.id.editText);
         reverseButton.setOnClickListener(this);
 
@@ -131,16 +131,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
         }
 
-    public void onClick(View view) {
 
-        int viewId = view.getId();
-        String initText = myEditText.getText().toString();
-
-        if (viewId == R.id.reverseButton){
-            String reverseText = reverse(initText);
-            myEditText.setText(reverseText);
-        }
-    }
 
     public static String reverse(String input){
         char[] in = input.toCharArray();
@@ -188,10 +179,18 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         int viewId = v.getId();
+        String initText = myEditText.getText().toString();
         if (viewId == R.id.ClearButton)
         {
             editText.setText(" ");
         }
+        else if (viewId == R.id.button4){
+            String reverseText = reverse(initText);
+            myEditText.setText(reverseText);
+        }
+
+
+
     }
 
     /**
