@@ -4,6 +4,7 @@ package edu.up.cs371.textmod;
  * class TextModActivity
  *
  * Allow text to be modified in simple ways with button-presses.
+ *
  */
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
