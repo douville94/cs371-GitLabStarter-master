@@ -16,11 +16,20 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+import java.lang.String;
 
-public class TextModActivity extends ActionBarActivity {
+import static edu.up.cs371.textmod.R.string.copy_name_button_text;
+
+public class TextModActivity extends ActionBarActivity
+{
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -31,6 +40,11 @@ public class TextModActivity extends ActionBarActivity {
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
+
+    Button copyName;
+    Spinner spinner;
+    EditText myEditText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -44,7 +58,7 @@ public class TextModActivity extends ActionBarActivity {
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        spinner = (Spinner)findViewById(R.id.spinner);
         // get array of strings
         String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
         // create adapter with the strings
@@ -73,7 +87,55 @@ public class TextModActivity extends ActionBarActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+        copyName = (Button)findViewById(R.id.button2);
+        myEditText = (EditText)findViewById(R.id.editText);
+        copyName.setOnClickListener(new copyNameButtonListener());
+//        copyNameMethod(copyName, spinnerNames);
+
+
+
+
     }
+
+    public class copyNameButtonListener implements View.OnClickListener
+    {
+        @Override
+        public void onClick(View v)
+        {
+            String text = spinner.getSelectedItem().toString();
+//                copyNameMethod(copyName, spinnerNames);
+            String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
+            int viewId = v.getId();
+            if(viewId == R.id.button2)
+            {
+                myEditText.setText(text);
+            }
+//            copyNameMethod(spinnerNames);
+        }
+    }
+
+////    public String copyNameMethod(Button copyName, String[] spinnerNames)
+//public String copyNameMethod(String[] spinnerNames)
+//    {
+//        //check if spinner text is spinnerNames[0], spinnerNames[1], or spinnerNames[2]
+////        if((String)copy_name_button_text.equals(spinnerNames[0]))
+//        if(spinner.getText().toString() .equals(spinnerNames[0]))
+//        {
+////            String copyNameText = copy_name_button_text + spinnerNames[0];
+//            String copyNameText = "Text goes hereSleeping Kitten";
+//            return copyNameText;
+//        }
+//        else if((String)copy_name_button_text.equals(spinnerNames[1]))
+//        {
+//            String copyNameText = "Text goes hereDr. Andrew Nuxoll";
+//            return copyNameText;
+//        }
+//        else if((String)copy_name_button_text.equals(spinnerNames[2]))
+//        {
+//            String copyNameText = "Text goes hereDr. Steven Vegdahl";
+//            return copyNameText;
+//        }
+//    }
 
     /**
      * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
@@ -128,4 +190,5 @@ public class TextModActivity extends ActionBarActivity {
             // your code here
         }
     }
+
 }
