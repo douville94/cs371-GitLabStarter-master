@@ -16,11 +16,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity {
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
+
+    Button ClearButton;
+    TextView editText;
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -38,6 +45,9 @@ public class TextModActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
 
+        ClearButton = (Button)findViewById(R.id.ClearButton);
+        editText = (EditText)findViewById(R.id.editText);
+        ClearButton.setOnClickListener(this);
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
 
@@ -101,6 +111,15 @@ public class TextModActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int viewId = v.getId();
+        if (viewId == R.id.ClearButton)
+        {
+            editText.setText(" ");
+        }
     }
 
     /**
