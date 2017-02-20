@@ -30,11 +30,11 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private Button ClearButton;
     private TextView editText;
     private Button buttonUP;
-    private EditText textUP;
-    private String newtext;
+    private String newText;
     private Button buttonDOWN;
-    Button reverseButton;
-    EditText myEditText;
+    private Button reverseButton;
+    private Spinner spinner;
+    private Button copyButton;
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -49,17 +49,19 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         setContentView(R.layout.activity_text_mod);
 
         reverseButton = (Button)findViewById(R.id.button4);
-        myEditText = (EditText)findViewById(R.id.editText);
+        editText = (EditText)findViewById(R.id.editText);
         buttonUP = (Button) findViewById(R.id.buttonUP);
-        textUP = (EditText) findViewById(R.id.editText);
         buttonDOWN = (Button) findViewById(R.id.buttonDOWN);
         ClearButton = (Button)findViewById(R.id.ClearButton);
-        editText = (EditText)findViewById(R.id.editText);
+        spinner = (Spinner)findViewById(R.id.spinner);
+        copyButton = (Button)findViewById(R.id.button2);
+
 
         reverseButton.setOnClickListener(this);
         buttonUP.setOnClickListener(new buttonUPListener());
         buttonDOWN.setOnClickListener(new buttonDOWNListener());
         ClearButton.setOnClickListener(this);
+        copyButton.setOnClickListener(this);
 
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
@@ -97,29 +99,49 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
     }
+
+//upper case listener
     private class buttonUPListener implements View.OnClickListener {
 
         public void onClick(View v) {
-            newtext = textUP.getText().toString();
-            textUP.setText((newtext.toUpperCase()));
-
+            newText = editText.getText().toString();
+            editText.setText((newText.toUpperCase()));
 
         }
     }
 
+//lower case listener
         private class buttonDOWNListener implements View.OnClickListener {
 
             public void onClick(View v) {
-                newtext = textUP.getText().toString();//nathan
-                textUP.setText((newtext.toLowerCase()));
+                newText = editText.getText().toString();//nathan
+                editText.setText((newText.toLowerCase()));
 
 
             }
 
         }
 
+//clear, reverse and copy button listener actions
+    @Override
+    public void onClick(View v) {
+        int viewId = v.getId();
+        String initText = editText.getText().toString();
+        if (viewId == R.id.ClearButton)
+        {
+            editText.setText(" ");
+        }
+        else if (viewId == R.id.button4){
+            String reverseText = reverse(initText);
+            editText.setText(reverseText);
+        }
+        else if (viewId == R.id.button2){
+            String spinText = spinner.getSelectedItem().toString();
+            editText.setText(spinText);
+        }
+    }
 
-
+//method to reverse text
     public static String reverse(String input){
         char[] in = input.toCharArray();
         int begin=0;
@@ -163,22 +185,6 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View v) {
-        int viewId = v.getId();
-        String initText = myEditText.getText().toString();
-        if (viewId == R.id.ClearButton)
-        {
-            editText.setText(" ");
-        }
-        else if (viewId == R.id.button4){
-            String reverseText = reverse(initText);
-            myEditText.setText(reverseText);
-        }
-
-
-
-    }
 
     /**
      * class that handles our spinner's selection events
