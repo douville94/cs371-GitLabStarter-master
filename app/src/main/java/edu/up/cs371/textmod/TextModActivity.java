@@ -35,6 +35,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private Button reverseButton;
     private Spinner spinner;
     private Button copyButton;
+    private Button spaceButton;
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -55,6 +56,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         ClearButton = (Button)findViewById(R.id.ClearButton);
         spinner = (Spinner)findViewById(R.id.spinner);
         copyButton = (Button)findViewById(R.id.button2);
+        spaceButton = (Button)findViewById(R.id.noSpaceButton);
 
 
         reverseButton.setOnClickListener(this);
@@ -62,6 +64,8 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         buttonDOWN.setOnClickListener(new buttonDOWNListener());
         ClearButton.setOnClickListener(this);
         copyButton.setOnClickListener(this);
+        spaceButton.setOnClickListener(this);
+
 
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
@@ -109,7 +113,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
         }
     }
-
+//
 //lower case listener
         private class buttonDOWNListener implements View.OnClickListener {
 
@@ -138,6 +142,10 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         else if (viewId == R.id.button2){
             String spinText = spinner.getSelectedItem().toString();
             editText.setText(spinText);
+        }
+        else if (viewId == R.id.noSpaceButton){
+            String noSpaceText = initText.replaceAll("\\s+","");
+            editText.setText(noSpaceText);
         }
     }
 
