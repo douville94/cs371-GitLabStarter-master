@@ -61,6 +61,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         spaceButton = (Button)findViewById(R.id.noSpaceButton);
 
         punctuation = (Button)findViewById(R.id.punctuation);
+        AlternatingButton = (Button)findViewById(R.id.AlternatingButton);
 
 
         reverseButton.setOnClickListener(this);
@@ -68,6 +69,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         buttonDOWN.setOnClickListener(new buttonDOWNListener());
         ClearButton.setOnClickListener(this);
         copyButton.setOnClickListener(this);
+        AlternatingButton.setOnClickListener(this);
         spaceButton.setOnClickListener(this);
 
 
@@ -119,7 +121,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
         }
     }
-//
+
 //lower case listener
         private class buttonDOWNListener implements View.OnClickListener {
 
@@ -148,6 +150,18 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         else if (viewId == R.id.button2){
             String spinText = spinner.getSelectedItem().toString();
             editText.setText(spinText);
+        }
+        else if (viewId == R.id.AlternatingButton){
+            String x = initText;
+            for (int i = 0, len = x.length(); i < len; i++) {
+                char ch = x.charAt(i);
+                if (i % 2 == 0) {
+                    editText.setText(Character.toLowerCase(ch));
+                } else {
+                    editText.setText(Character.toUpperCase(ch));
+                }
+            }
+
         }
 
         else if (viewId == R.id.punctuation){
