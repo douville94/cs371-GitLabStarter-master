@@ -184,7 +184,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         return res;
     }
 
-
+//lll
     //method to reverse text
     public static String reverse(String input){
         char[] in = input.toCharArray();
