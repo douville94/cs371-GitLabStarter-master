@@ -12,7 +12,7 @@
         <item>@mipmap/pug</item>
         <item>@mipmap/ic_launcher</item>
         <item>@mipmap/dog</item>
-
+        <item>@mipmap/newfie</item>
     </array>
 
     <string-array name="spinner_names">
@@ -22,6 +22,7 @@
         <item>Guilian Luchini</item>
         <item>Paul H</item>
         <item>Nathan Tibbets</item>
+        <item>Luke Douville</item>
     </string-array>
 
 </resources>
