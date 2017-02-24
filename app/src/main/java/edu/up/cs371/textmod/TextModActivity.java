@@ -35,6 +35,8 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private Button reverseButton;
     private Spinner spinner;
     private Button copyButton;
+    private Button AlternatingButton;
+    private Button punctuation;
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -56,12 +58,16 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         spinner = (Spinner)findViewById(R.id.spinner);
         copyButton = (Button)findViewById(R.id.button2);
 
+        punctuation = (Button)findViewById(R.id.punctuation);
+
 
         reverseButton.setOnClickListener(this);
         buttonUP.setOnClickListener(new buttonUPListener());
         buttonDOWN.setOnClickListener(new buttonDOWNListener());
         ClearButton.setOnClickListener(this);
         copyButton.setOnClickListener(this);
+
+        punctuation.setOnClickListener(this);
 
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
@@ -139,9 +145,25 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             String spinText = spinner.getSelectedItem().toString();
             editText.setText(spinText);
         }
+
+        else if (viewId == R.id.punctuation){
+            String words = removePunctuations(initText);
+            editText.setText(words);
+        }
+
     }
 
-//method to reverse text
+    public String removePunctuations(String s) {
+        String res = "";
+        for (Character c : s.toCharArray()) {
+            if(Character.isLetterOrDigit(c))
+                res += c;
+        }
+        return res;
+    }
+
+
+    //method to reverse text
     public static String reverse(String input){
         char[] in = input.toCharArray();
         int begin=0;
