@@ -10,6 +10,9 @@
         <item>@mipmap/nuxoll</item>
         <item>@mipmap/vegdahl</item>
         <item>@mipmap/pug</item>
+        <item>@mipmap/ic_launcher</item>
+        <item>@mipmap/dog</item>
+
     </array>
 
     <string-array name="spinner_names">
@@ -17,6 +20,8 @@
         <item>Dr. Andrew Nuxoll</item>
         <item>Dr. Steven Vegdahl</item>
         <item>Guilian Luchini</item>
+        <item>Paul Hoang</item>
+        <item>Nathan Tibbets</item>
     </string-array>
 
 </resources>
