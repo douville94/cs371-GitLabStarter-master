@@ -160,7 +160,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             editText.setText(noSpaceText);
         }
     }
-
+//
     public String removePunctuations(String s) {
         String res = "";
         for (Character c : s.toCharArray()) {
