@@ -153,12 +153,13 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         }
         else if (viewId == R.id.AlternatingButton){
             String x = initText;
+            String y = "";
             for (int i = 0, len = x.length(); i < len; i++) {
                 char ch = x.charAt(i);
                 if (i % 2 == 0) {
-                    editText.setText(Character.toLowerCase(ch));
+                    y = y + (Character.toLowerCase(ch));
                 } else {
-                    editText.setText(Character.toUpperCase(ch));
+                    y = y + (Character.toUpperCase(ch));
                 }
             }
 
